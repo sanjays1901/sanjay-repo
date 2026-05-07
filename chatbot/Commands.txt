@@ -1,0 +1,27 @@
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+uvicorn main:app --reload --port 5000
+
+docker compose up
+
+docker exec -it redis-chatbot redis-cli
+
+KEYS *
+GET test
+
+SQLAlchemy: ORM
+
+What is leave policy?
+What is reimbursement process?
+When does medical insurance start?
+What is laptop usage policy?
+
+How do I request laptop replacement?
+Is VPN mandatory?
+What is the password reset process?
+What should employees do for phishing emails?
+Is MFA required?
+What happens for lost devices?
+Can employees share passwords?
