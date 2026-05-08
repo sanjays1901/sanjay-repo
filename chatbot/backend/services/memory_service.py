@@ -1,5 +1,8 @@
 import json
-from redis_client import redis_client
+try:
+    from redis_client import redis_client
+except:
+    redis_client = None
 
 def build_session_key( tenant_id, session_id):
     return f"{tenant_id}:{session_id}"
@@ -9,7 +12,8 @@ def get_history(tenant_id, session_id):
         return []
     
     session_key = build_session_key(tenant_id, session_id)
-
+    if not redis_client:
+        return []
     # Geting data from Redis
     history_json = redis_client.get(session_key)
     if not history_json:
@@ -25,7 +29,8 @@ def save_history(tenant_id, session_id, query, answer):
         return
     
     session_key = build_session_key(tenant_id, session_id)
-
+    if not redis_client:
+        return []
     history_json = redis_client.get(session_key)
     if history_json:
         history = json.loads(history_json)
