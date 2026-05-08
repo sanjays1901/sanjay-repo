@@ -1,0 +1,11 @@
+openai
+python-dotenv
+pydantic
+fastapi
+uvicorn
+psycopg2-binary
+sqlalchemy
+pgvector
+pypdf
+python-multipart
+redis

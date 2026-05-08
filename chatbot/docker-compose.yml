@@ -1,6 +1,18 @@
 version: '3.8'
 
 services:
+  backend:
+    build:
+      context: ./backend
+    container_name: sanjay-rag-api
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - pgvector
+      - redis
+      
   pgvector:
     image: pgvector/pgvector:pg16
     container_name: pgvector-db
