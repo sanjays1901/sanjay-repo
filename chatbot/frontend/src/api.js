@@ -1,4 +1,4 @@
-const BASE_URL = ''; // Handled by proxy in package.json
+const BASE_URL = 'https://sanjay-rag-api-cveagnd0ada9dpcf.centralus-01.azurewebsites.net'; // Handled by proxy in package.json
 
 export const chatApi = {
   async ask(query, sessionId, tenantId = 'default') {
