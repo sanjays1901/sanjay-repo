@@ -11,14 +11,30 @@ docker exec -it redis-chatbot redis-cli
 KEYS *
 GET test
 
-docker build -t sanjay-rag-api .
+
 docker run -p 5000:5000 sanjay-rag-api
 
-docker tag sanjay-rag-api sanjay190188/sanjay-rag-api:latest
-docker push sanjay190188/sanjay-rag-api:latest
+
+
 
 docker images
 
+==============================
+cd F:\PYTHON\sanjay-labs\chatbot
+docker compose up --build -d
+
+git add .
+git commit -m "Add Redis fallback handling"
+git push origin main
+
+docker build -t sanjay-rag-api .
+docker tag sanjay-rag-api sanjay190188/sanjay-rag-api:latest
+docker push sanjay190188/sanjay-rag-api:latest
+==============================
+cd F:\PYTHON\sanjay-labs\chatbot\frontend
+npm run build
+
+==============================
 SQLAlchemy: ORM
 
 What is leave policy?
@@ -33,3 +49,5 @@ What should employees do for phishing emails?
 Is MFA required?
 What happens for lost devices?
 Can employees share passwords?
+
+https://red-bush-01a67da00.7.azurestaticapps.net/
