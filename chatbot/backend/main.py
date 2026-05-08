@@ -22,18 +22,20 @@ from services.memory_service import (
 )
 from services.chat_history_service import save_chat_history
 from services.history_service import get_chat_history
+from models import Base
 import shutil
 
 # Load env
 load_dotenv()
 
 app = FastAPI()
+Base.metadata.create_all(bind=engine)
 
 from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # your React app
+    allow_origins=["*"],  # your React app
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -44,7 +44,7 @@ const ChatBot = () => {
 
     try {
       // ✅ using proxy → no hardcoded localhost needed
-      const response = await fetch('http://localhost:5000/ask', {
+      const response = await fetch('https://sanjay-rag-api-cveagnd0ada9dpcf.centralus-01.azurewebsites.net/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
